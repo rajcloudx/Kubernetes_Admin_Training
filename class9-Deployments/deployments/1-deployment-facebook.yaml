@@ -46,7 +46,6 @@ metadata:
 spec:
   selector:
     role: webserver
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 80
-    nodePort: 32001
+  - port: 80  
