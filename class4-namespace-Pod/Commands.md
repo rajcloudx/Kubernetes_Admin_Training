@@ -74,84 +74,120 @@ kubectl exec -it pod/multicontainer-pods bash -n facebook -c db
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/2-multipods.yml
 `````
 ************************************************************************************************************************************
-
+`````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/2.1-duplicate-port-multipod.yaml
-
+`````
+`````
 kubectl apply -f 2.1-duplicate-port-multipod.yaml
-
+`````
 same port it wont work ---
-
+`````
 kubectl get all -n facebook -l app=httpd
-
-
+`````
+`````
 kubectl describe pod/multicontainer-pods -n facebook
-
+`````
 in this only one container will run another one will give you error
-
+`````
 kubectl logs pod/multicontainer-pods -n facebook -c httpd2
+`````
+`````
 kubectl logs pod/multicontainer-pods -n twitter -c httpd1
-
+`````
+`````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/2.1-duplicate-port-multipod.yaml
-
+`````
 ***********************************************************************************************************************************
+`````
 kubectl create ns twitter
-
+`````
+`````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/3-storage.yml
-
+`````
+`````
 kubectl apply -f 3-storage.yml
-
+`````
+`````
 kubectl get pods -n twitter -o wide
-
+`````
+`````
 kubectl describe pod/database -n twitter
-
+`````
 
 check the directory has been created to that node
 
 ls -ltrh /var/lib/postgres
-
+`````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/3-storage.yml
-
+`````
 ****************************************************************************************************************************************
-
+`````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/4-multistorage.yml
-
+`````
+`````
 kubectl get pods -n facebook -o wide
+`````
+`````
 kubectl get all -n facebook -o wide
-
+`````
+`````
 kubectl describe pod/db -n facebook
-
+`````
+`````
 kubectl exec -it pod/db bash -n facebook -c web
+`````
+`````
 kubectl exec -it pod/db bash -n facebook -c db
+`````
 
 ls -ltrh /var/www/html/
 ls -ltrh /var/lib/postgres
-
+`````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/4-multistorage.yml
-
+`````
 ***************************************************************************************************************************************
+`````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/5-full.yaml
-
+`````
+`````
 kubectl get pods -n twitter -o wide
+`````
+`````
 kubectl get all -n twitter -o wide
-
+`````
+`````
 kubectl describe pod/webserver -n twitter
-
+`````
+`````
 kubectl exec -it pod/webserver bash -n twitter -c web
-
+`````
+`````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/5-full.yaml
+`````
 ***************************************************************************************************************************************
 find out the below yaml file is deployed to which name space
-
+`````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/6-example.yml -n cloudnloud
-
+`````
+`````
 kubectl create ns cloudnloud
-
+`````
+`````
 kubectl get all -n cloudnloud
+`````
+`````
 kubectl get pod/first-pod -n cloudnloud
+`````
+`````
 kubectl describe pod first-pod -n cloudnloud
-
+`````
+`````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class4-namespace-Pod/pod/6-example.yml -n cloudnloud
+`````
 ********************************************************************************************
+`````
 kubectl get ns
-
+`````
+`````
 kubectl delete ns <namespace>
+`````
