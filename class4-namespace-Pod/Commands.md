@@ -1,6 +1,6 @@
-``
+`````
 kubectl get ns
-``
+```````
 
 kubectl get all -n default
 
