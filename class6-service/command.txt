@@ -1,50 +1,62 @@
-services
-
+```````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/nodeport-facebook.yaml
-
+````````
+```````
 kubectl describe pod/webserver -n facebook
-
+```````
+```````
 kubectl get all -n facebook -o wide
-
+```````
 now access master,node1,node2 public ip and check from outside browser
 
 <Master Node Public IP>:32001
 <Worker Node1 Public IP>:32001
 <Worker Node2 Public IP>:32001
-
+```````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/nodeport-facebook.yaml
+```````
 *************************************************************************************************************************************
-
+```````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/nodeport-twitter.yml
-
+```````
+```````
 kubectl describe pod/webserver -n twitter
-
+```````
+```````
 kubectl get all -n twitter -o wide
-
+```````
 now access master,node1,node2 public ip and check from outside browser
 
 <Master Node Public IP>:32001
 <Worker Node1 Public IP>:32001
 <Worker Node2 Public IP>:32001
-
+```````
 kubectl delete -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/nodeport-twitter.yml
-
+```````
 **************************************************************************************************************************************
 For this load balancer exercise
 
 Goto Google cloud and create Google Kubernete Cluster Engine
 
 gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project model-axe-311317
-
+```````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/loadbalancer-facebook.yaml
+```````
+```````
 kubectl apply -f https://raw.githubusercontent.com/cloudnloud/Kubernetes_Admin_Training/main/class6-service/service/loadbalancer-twitter.yml
-
+```````
+```````
 kubectl get all -n twitter -o wide
+```````
+```````
 kubectl get pod,services -n twitter -o wide
-
+```````
 35.227.119.203:32001
 
 access like above from all node machine ip addresses.it should work from all client machine ip address.then the proxy cluster is working good.
-
+```````
 kubectl get services
+```````
+```````
 kubectl describe services
+```````
